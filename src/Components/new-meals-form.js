@@ -20,7 +20,7 @@ export default class NewMealsForm extends React.Component {
         handleTimeChange(e) {
             this.setState({timeValue: e.target.value})
         } /*whatever the target was of the event,
-        and its value, we set the meal time value to that */ 
+        and its value, set the meal time value to that */ 
         handleItemChange(e) {
             this.setState({itemValue: e.target.value});
         }
@@ -33,20 +33,24 @@ export default class NewMealsForm extends React.Component {
 
         render(){
             return (
-                <div className="container sm-6">
-                    <input type="text" placeholder="breakfast, lunch, dinner" onChange={this.handleTimeChange} value={this.state.timeValue}/>
-                    <button onClick={this.handleClick}>Add Meal</button>
-                    <br />
-                    <input type="text" placeholder="enter a food for the meal" onChange={this.handleItemChange} value={this.state.itemValue}/>
-                    <button onClick={this.handleClick}>Add Meal</button>
-                </div> /*on click, will handle the event and it will have
+               <div>
+                    <div className="text-center">
+                      <input type="text" placeholder="breakfast, lunch, dinner" onChange={this.handleTimeChange} value={this.state.timeValue}/> &nbsp;&nbsp;
+                      <input type="text" placeholder="list all foods for the meal" onChange={this.handleItemChange} value={this.state.itemValue}/>  
+                      <br/> <br /> 
+                    </div>                  
+
+                    <div>
+                      <button className="btn btn-success col-md-12 text-center" onClick={this.handleClick}>Add Meal</button>
+                    </div>  
+                    
+               </div>/*on click will handle the event and it will have
                 the data based on that event */
             ) /*anytime the name changes, it will update the name value that the
             handleNameChange method tells it to do */ 
-        } /*we are tying the value in the input the user sees 
-        to the variable in the new room state */
+        } /*tying the value in the input the user sees 
+        to the variable in the new meals state */
     }
     
 
-    /*"This" refers to whatever the house or room is that is being passed or called 
-    in the current state */
+    

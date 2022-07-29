@@ -16,7 +16,7 @@ export default class Container extends React.Component {
     ? this.state.days.map((day, index) => /*pass in day and index arguments */
     <Day /*returning the Day component */
     key={index} /*unique id for each day */
-    data={day} /*the day for this data */
+    data={day} /*the data for this day */
     addNewMeal={this.addNewMeal} /*method passed down from props*/
     deleteMeal={this.deleteMeal} />) /*method passed down from props */
     : null; /*if the state is not null, iterate through the days and create a day element; 
@@ -30,9 +30,9 @@ export default class Container extends React.Component {
   componentDidMount(){ /* here make asynchronous calls*/
   fetch(MEALS_ENDPOINT)
     .then(res => res.json())
-    .then(data => { /*when data comes back we call setState */
+    .then(data => { /*when data comes back call setState */
       this.setState ({
-        days: data /*data we get back becomes the day in in the current state -- 
+        days: data /*data we get back becomes the day in the current state -- 
         grabs the days */
       }); 
     });
@@ -42,7 +42,7 @@ export default class Container extends React.Component {
     const index = day.meals.indexOf(meal); /*index identifies which meal we will delete */
     day.meals.splice(index, 1); /*we are splicing out meal at index, and only splicing one of them */
     updateDay(day) /*taking array we have in memory and removing a meal and updating day */
-      .then(() => { /* here we send HTTP request to make this permanent in the database that our API is 
+      .then(() => { /* send HTTP request to make this permanent in the database that our API is 
       wrapping around*/
         this.setState(state => { /*passing in day through the updateDay method */
           for (let d of state.days){ /* iterate over days in previouse state*/
