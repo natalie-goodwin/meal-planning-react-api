@@ -7,11 +7,12 @@ export default class Day extends React.Component {
     ? this.props.data.meals.map((meal, index) => /*meals will be added if they exist, along with a time and 
     item */ 
         <li key={index}>
-           <h3>Meal Time:</h3> {meal.time} <h3>Item:</h3> {meal.item} 
+           <h5>Meal Time:</h5> {meal.time} <h5>Item:</h5> {meal.item} 
             <button onClick={e =>
             this.props.deleteMeal(e, this.props.data, meal)
         }>Delete Meal</button> 
         </li>) 
+        
     : null; /* created a list element for each meal above with a button
     that allows a delete event; pass in deleteMeal prop from container into 
     each meal; the props allows for passing methods; 

@@ -25,7 +25,7 @@ export default class NewMealsForm extends React.Component {
             this.setState({itemValue: e.target.value});
         }
         handleClick(e) {/*calling addNewMeal method that was passed in on 
-        props and passing in the event, the data of this day, amd the new meal */
+        props and passing in the event, the data of this day, and the new meal */
             this.props.addNewMeal(e, this.props.data,
             {time: this.state.timeValue, item: this.state.itemValue});
             this.setState({timeValue: "", itemValue: ""});
@@ -33,9 +33,11 @@ export default class NewMealsForm extends React.Component {
 
         render(){
             return (
-                <div>
-                    <input type="text" placeholder="Time" onChange={this.handleTimeChange} value={this.state.timeValue}/>
-                    <input type="text" placeholder="Item" onChange={this.handleItemChange} value={this.state.itemValue}/>
+                <div className="container sm-6">
+                    <input type="text" placeholder="breakfast, lunch, dinner" onChange={this.handleTimeChange} value={this.state.timeValue}/>
+                    <button onClick={this.handleClick}>Add Meal</button>
+                    <br />
+                    <input type="text" placeholder="enter a food for the meal" onChange={this.handleItemChange} value={this.state.itemValue}/>
                     <button onClick={this.handleClick}>Add Meal</button>
                 </div> /*on click, will handle the event and it will have
                 the data based on that event */
